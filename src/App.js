@@ -28,5 +28,34 @@ Feel free to have fun and experiment with others too!
 If you get stuck or need help, please reach out on Slack.
 */
 export default function App() {
-  return <div>Replace this with your beautiful JSX</div>;
+  const members = team;
+
+  return (
+    <>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1>Redi React Fall 2020 Team</h1>
+      </header>
+      <table className="members-table">
+        <thead>
+          <tr>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          {members.map((member) => (
+            <tr className="member-row">
+              <td className="avatar-cell" key={member.name}>
+                <img alt="userImage" src={member.image} />
+              </td>
+              <td className="name-cell">{member.name}</td>
+              <td className="role-cell">{member.role}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
+  );
 }
